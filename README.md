@@ -4,6 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 For run this project you need changes the next ts
 
+Note: if you up your angular app in different host and port than keycloack you will have across origin.
+
 ## login.component.ts
   * const body = new HttpParams()
   * .set("username", this.loginForm.value.username) //username by login
