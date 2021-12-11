@@ -15,10 +15,10 @@ body { font-size: 62.5%; /* 1em = 10px */ }
     justify-content: center;
     align-items: center;
     background: #C1C1C1;
-    background: -webkit-radial-gradient(rgba(0,0,0,.2),rgba(0,0,0,.9));
-    background: -moz-radial-gradient(rgba(0,0,0,.2),rgba(0,0,0,.9));
-    background: -o-radial-gradient(rgba(0,0,0,.2),rgba(0,0,0,.9));
-    background: radial-gradient(rgba(0,0,0,.2),rgba(0,0,0,.9));
+    background: -webkit-radial-gradient(rgba(116, 118, 124, 0.2),rgba(116, 118, 124, 0.2));
+    background: -moz-radial-gradient(rgba(116, 118, 124, 0.2),rgba(116, 118, 124, 0.2));
+    background: -o-radial-gradient(rgba(116, 118, 124, 0.2),rgba(116, 118, 124, 0.2));
+    background: radial-gradient(rgba(116, 118, 124, 0.2),rgba(116, 118, 124, 0.2));
 }
 
 .logo{
