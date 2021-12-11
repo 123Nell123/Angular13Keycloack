@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 //sidenab
 import { MaterialModule } from "../material.module";
 
-// PAGINAS
+// pages
 import { HeaderComponent } from './header/header.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { AccessdeniedComponent } from './accessdenied/accessdenied.component';
@@ -19,7 +19,7 @@ import { LoadingComponent } from './loading/loading.component';
     LoadingComponent,
   ],
   imports: [
-    // para las rutas children
+    // children
     RouterModule,
     CommonModule,
     MaterialModule,
