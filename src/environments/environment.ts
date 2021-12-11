@@ -3,7 +3,6 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  host: 'http://127.0.0.1:8080/pvm',
   production: false
 };
 
