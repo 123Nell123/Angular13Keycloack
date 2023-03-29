@@ -3,6 +3,7 @@ import { FormControl, FormBuilder, FormGroup, Validators } from "@angular/forms"
 import { Router, ActivatedRoute } from "@angular/router";
 import { HttpParams } from "@angular/common/http";
 import { AuthService } from "../services/auth/login/auth.service";
+import { environment } from "src/environments/environment";
 
 
 @Component({
@@ -47,8 +48,8 @@ export class LoginComponent implements OnInit {
     .set("username", this.loginForm.value.username)
     .set("password", this.loginForm.value.password)
     .set("grant_type", "password")
-    .set("client_id", "springboot-keycloack")
-    .set("client_secret", "")
+    .set("client_id", environment.keycloak.clientId)  // here your realms cliend id from keycloak
+    .set("client_secret", "") //by default realms will created emtpy from keycloak
     .set("scope", "openid");
 
     let json: any;

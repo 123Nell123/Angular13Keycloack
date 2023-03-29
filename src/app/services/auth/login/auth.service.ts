@@ -20,7 +20,9 @@ export class AuthService {
   async currentloginid(payMod: any) {
     //changes this url by your realms 
     try {
-      const response = await fetch('http://127.0.0.1:9080/auth/realms/demo2/protocol/openid-connect/token', {
+       // http://localhost:8080/admin/master/console/#/Starlux/realm-settings/tokens
+      //const response = await fetch('http://127.0.0.1:9080/auth/realms/demo2/protocol/openid-connect/token', {
+        const response = await fetch('http://localhost:8080/admin/master/console/#/Starlux/realm-settings/tokens', {
         method: 'post',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
