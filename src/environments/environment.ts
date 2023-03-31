@@ -6,9 +6,9 @@
 export const environment = {
   production: false,
   keycloak: {
-    url: 'localhost:4200/#/crm/dashboard/home',
-    realm: 'Starlux',
-    clientId: 'Starlux'
+    url: 'localhost:4200/#/login',
+    realm: 'angu13',
+    clientId: 'myclient'
   }
 };
 /*

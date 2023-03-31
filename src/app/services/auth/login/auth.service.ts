@@ -20,15 +20,19 @@ export class AuthService {
   async currentloginid(payMod: any) {
     //changes this url by your realms 
     try {
+      console.log("Current login")
        // http://localhost:8080/admin/master/console/#/Starlux/realm-settings/tokens
       //const response = await fetch('http://127.0.0.1:9080/auth/realms/demo2/protocol/openid-connect/token', {
-        const response = await fetch('http://localhost:8080/admin/master/console/#/Starlux/realm-settings/tokens', {
+        const response = await fetch('http://127.0.0.1:8080/realms/angu13/protocol/openid-connect', {
         method: 'post',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
         },
-        body: payMod
+        body: payMod,
+        mode: 'no-cors' // Ajout de la propriété mode
       });
+      console.log("prepare response");
+      console.log(response);
       const data = await response.json();
       return data;
     } catch (error) {
@@ -44,7 +48,7 @@ export class AuthService {
      * user_name -> customer configuration 
      * preferred_username -> common on ldap
      * */ 
-    return payload.preferred_username;
+    return payload.username;
   }
 
   public get token(): string {
@@ -78,7 +82,7 @@ export class AuthService {
      * preferred_username -> common on ldap
      * */ 
 
-    if (payload != null && payload.preferred_username && payload.preferred_username.length > 0) {
+    if (payload != null && payload.username && payload.username.length > 0) {
       return true;
     }
     return false;
