@@ -6,7 +6,7 @@
 export const environment = {
   production: false,
   keycloak: {
-    url: 'localhost:4200/#/login',
+    url: 'http://localhost:4200/',
     realm: 'angu13',
     clientId: 'myclient'
   }

@@ -13,7 +13,8 @@ export class AuthService {
     
     var splitted = loginPayload.split("&"); 
     let payMod =  splitted[0]+"&"+`password=${encodeURIComponent(splitted[1].split("=")[1])}`+"&"+splitted[2]+"&"+splitted[3]+"&"+splitted[4]+"&"+splitted[5];
-    //console.log("loginPayload  " + payMod);
+  // let payMod =  splitted[0]+"&"+`password=${encodeURIComponent(splitted[1].split("=")[1])}`+"&"+splitted[2]+"&"+splitted[3];
+    console.log("loginPayload  " + payMod);
     return this.currentloginid(payMod);
   }
 
@@ -23,17 +24,18 @@ export class AuthService {
       console.log("Current login")
        // http://localhost:8080/admin/master/console/#/Starlux/realm-settings/tokens
       //const response = await fetch('http://127.0.0.1:9080/auth/realms/demo2/protocol/openid-connect/token', {
-        const response = await fetch('http://127.0.0.1:8080/realms/angu13/protocol/openid-connect', {
+        const response = await fetch('http://localhost:8080/realms/angu13/protocol/openid-connect/token', {
         method: 'post',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
         },
         body: payMod,
-        mode: 'no-cors' // Ajout de la propriété mode
+     
       });
       console.log("prepare response");
-      console.log(response);
+     
       const data = await response.json();
+      console.log("data",data);
       return data;
     } catch (error) {
       console.log('Request failed', error);
@@ -57,6 +59,7 @@ export class AuthService {
 
     if (sessionStorage.getItem('token') != null) {
       resul= sessionStorage.getItem('token');
+      console.log("y a un token")
     }
     return resul;
   }
@@ -74,7 +77,7 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     const payload = this.getDataToken(this.token);
-    
+    console.log("on est identifie")
     /**
      * changes 
      * username -> normal configuration
@@ -89,6 +92,7 @@ export class AuthService {
   }
 
   logout(): void {
+    console.log("logout")
     sessionStorage.clear();
   }
 }

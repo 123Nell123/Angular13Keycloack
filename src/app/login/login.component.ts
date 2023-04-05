@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
   }
 
   async onSubmit() {
+    console.log("submit")
     this.message = "";
     if (this.loginForm.invalid) {
       return;
@@ -48,13 +49,17 @@ export class LoginComponent implements OnInit {
     .set("username", this.loginForm.value.username)
     .set("password", this.loginForm.value.password)
     .set("grant_type", "password")
-    .set("client_id", environment.keycloak.clientId)  // here your realms cliend id from keycloak
-    .set("client_secret", "") //by default realms will created emtpy from keycloak
-    .set("scope", "openid");
+    .set("client_secret", "") 
+    .set("scope", "openid")
+    .set("client_id", "myclient");  // here your realms cliend id from keycloak
 
+    //.set("client_secret", "") //by default realms will created emtpy from keycloak
+    //.set("scope", "openid");
+  console.log("body",body)
+  console.log("body to string ",body.toString())
     let json: any;
     await this.auth.login(body.toString()).then(function (data) {
-
+      console.log("data",data);
       json = data;
 
     });
@@ -66,7 +71,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     else {
-     // console.log("here");
+     console.log("json ok on navige vers /");
       this.auth.saveToken(json.access_token);
       this.router.navigate(["/"]);
     }
